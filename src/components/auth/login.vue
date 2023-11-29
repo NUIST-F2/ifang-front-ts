@@ -1,38 +1,50 @@
-
 <template>
-    <Form @submit="login">
-      <FormItem label="Username">
-        <Input v-model:value="username" placeholder="Username" required />
-      </FormItem>
-      <FormItem label="Password">
-        <Input type="password" v-model:value="password" placeholder="Password" required />
-      </FormItem>
-      <FormItem label="Role">
-        <Input v-model:value="role" placeholder="Role" />
-      </FormItem>
-      <FormItem>
-        <Button type="primary" html-type="submit" :loading="loading">{{ loading ? '加载中' : '登录' }}</Button>
-      </FormItem>
-    </Form>
-    <Alert v-if="loginError" message="1" type="error" show-icon>{{ loginErrorMessage }}</Alert>
-    <Alert v-else-if="isLoggedIn" message="2" type="success" show-icon>Logged in successfully!</Alert>
-    <Alert v-if="isTokenReturn && !loginError && !isLoggedIn" message="3" type="success" show-icon ></Alert>
-  </template>
-  
-  
-  
-  
-  <script setup lang="ts">
-  
-  
-  
-  
+  <Form @submit="login">
+    <FormItem label="Username">
+      <Input v-model:value="username" placeholder="Username" required />
+    </FormItem>
+    <FormItem label="Password">
+      <Input
+        type="password"
+        v-model:value="password"
+        placeholder="Password"
+        required
+      />
+    </FormItem>
+    <FormItem label="Role">
+      <Input v-model:value="role" placeholder="Role" />
+    </FormItem>
+    <FormItem>
+      <Button type="primary" html-type="submit" :loading="loading">{{
+        loading ? "加载中" : "登录"
+      }}</Button>
+    </FormItem>
+  </Form>
+  <Alert v-if="loginError" message="1" type="error" show-icon>{{
+    loginErrorMessage
+  }}</Alert>
+  <Alert v-else-if="isLoggedIn" message="2" type="success" show-icon
+    >Logged in successfully!</Alert
+  >
+  <Alert
+    v-if="isTokenReturn && !loginError && !isLoggedIn"
+    message="3"
+    type="success"
+    show-icon
+  ></Alert>
+</template>
+
+<script setup lang="ts">
+
+
+
+
   import { Form, FormItem, Input, Button, Space, Alert } from 'ant-design-vue';
   import { ref } from 'vue';
   import axios from 'axios';
-  
-  
-  
+  import router from "../../router/index";
+
+
   const username = ref('')
   const password = ref('')
   const loginError = ref(false)
@@ -42,9 +54,9 @@
   const loading = ref(false)// 控制加载状态
   const role = ref('')
   const isTokenReturn = ref(false)
-  
-  
-  
+
+
+
   function login() {
     loading.value = true; // 开始加载
     const signInDto = {
@@ -52,7 +64,7 @@
       password: password.value,
       role: 'admin', // 根据需要设置角色
     };
-  
+
     axios.post('http://localhost:3000/api/auth/login', signInDto)
       .then(response => {
         // 登录成功，处理响应数据
@@ -60,16 +72,16 @@
         isTokenReturn.value = true;
         loginError.value = false;
         token.value = response.data.token;
-  
-  
+
+
         setTimeout(() => {
           // 登录成功后的处理逻辑
           loading.value = false; // 停止加载
-          
-          localStorage.setItem('token', token.value); 
+
+          localStorage.setItem('token', token.value);
         }, 2000);
-  
-  
+
+
       })
       .catch(error => {
         // 登录失败，处理错误
@@ -78,5 +90,7 @@
         isLoggedIn.value = false;
       });
   }
-  </script>
+
+
   
+</script>

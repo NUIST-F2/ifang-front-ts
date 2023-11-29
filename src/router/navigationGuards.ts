@@ -22,3 +22,11 @@ function hasToken() {
     return true;
   }
 }
+export default  {
+
+  data() {
+    return {
+      count: 1
+    }
+  },
+}
