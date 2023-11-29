@@ -1,8 +1,11 @@
 import axios from "axios";
 import router from "./index";
-
 router.beforeEach((to, from, next) => {
+  console.log(to.meta.requiresAuth)
+  console.log(hasToken())
   if (to.meta.requiresAuth && !hasToken()) {
+
+    
     // 如果需要进行登录验证且没有 token，重定向到登录页面或其他逻辑
     next("/auth/login");
   } else {

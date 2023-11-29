@@ -7,7 +7,7 @@ import page from './components/auth/page.vue'
 import 'ant-design-vue/dist/reset.css'
 
 
-const pages = createApp(page).use(Antd).use(router)
+
 const app = createApp(App).use(Antd).use(router)
 app.mount('#app')
 
