@@ -10,5 +10,8 @@ import Login from "./components/auth/login.vue";
     </nav>
   </header>
 
+  <div>
+    <RouterLink to="/user/profile">profile</RouterLink>
+  </div>
   <RouterView />
 </template>

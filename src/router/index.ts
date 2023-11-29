@@ -1,9 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import Login from "../components/auth/login.vue";
-import Antd from "ant-design-vue";
+import pages from "../components/auth/page.vue";
+
+
+
 
 const router = createRouter({
+  // @ts-ignore
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -16,6 +20,12 @@ const router = createRouter({
       name: "login",
       component: Login,
     },
+    {
+      path:"/user/profile",
+      name:"profile",
+      component:pages,
+      meta: { requiresAuth: true }
+    }
   ],
 });
 

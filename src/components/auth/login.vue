@@ -65,6 +65,8 @@
         setTimeout(() => {
           // 登录成功后的处理逻辑
           loading.value = false; // 停止加载
+          
+          localStorage.setItem('token', token.value); 
         }, 2000);
   
   

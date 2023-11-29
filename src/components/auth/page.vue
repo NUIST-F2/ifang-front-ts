@@ -16,8 +16,8 @@
     <LayoutContent style="padding: 0 50px">
       <Breadcrumb style="margin: 16px 0">
         <BreadcrumbItem>Home</BreadcrumbItem>
-        <breadcrumb-item>List</breadcrumb-item>
-        <breadcrumb-item>App</breadcrumb-item>
+        <BreadcrumbItem>List</BreadcrumbItem>
+        <BreadcrumbItem>App</BreadcrumbItem>
       </Breadcrumb>
       <Layout style="padding: 24px 0; background: #fff">
         <LayoutSider width="200" style="background: #fff">
@@ -31,7 +31,7 @@
               <template #title>
                 <span>
                   <UserOutlined />
-                  subnav 1
+                  User
                 </span>
               </template>
               <MenuItem key="1">option1</MenuItem>
@@ -43,7 +43,7 @@
               <template #title>
                 <span>
                   <LaptopOutlined />
-                  subnav 2
+                  Shopping
                 </span>
               </template>
               <MenuItem key="5">option5</MenuItem>
@@ -55,7 +55,7 @@
               <template #title>
                 <span>
                   <NotificationOutlined />
-                  subnav 3
+                  Recommendation
                 </span>
               </template>
               <MenuItem key="9">option9</MenuItem>
@@ -71,7 +71,7 @@
       </Layout>
     </LayoutContent>
     <LayoutFooter style="text-align: center">
-      Ant Design ©2018 Created by Ant UED
+      IFANG ©2023 Created by Lixxxuan
     </LayoutFooter>
   </Layout>
 </template>
