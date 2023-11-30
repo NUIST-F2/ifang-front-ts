@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import Login from "../components/auth/login.vue";
 import pages from "../components/auth/page.vue";
-
+import shop from "../components/auth/shopping-page.vue"
 
 
 
@@ -25,7 +25,13 @@ const router = createRouter({
       name:"profile",
       component:pages,
       meta: { requiresAuth: true }
+    },
+    {
+      path:"/shop/shopping",
+      name:"shopping page",
+      component:shop
     }
+
   ],
 });
 

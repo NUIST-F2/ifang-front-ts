@@ -5,7 +5,7 @@ router.beforeEach((to, from, next) => {
   console.log(hasToken())
   if (to.meta.requiresAuth && !hasToken()) {
 
-    
+    window.alert('您未登录，即将离开当前页面，跳转至登录页面');
     // 如果需要进行登录验证且没有 token，重定向到登录页面或其他逻辑
     next("/auth/login");
   } else {
@@ -22,7 +22,7 @@ function hasToken() {
     return true;
   }
 }
-export default  {
+export default{
 
   data() {
     return {

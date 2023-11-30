@@ -44,7 +44,6 @@
   import axios from 'axios';
   import router from "../../router/index";
 
-
   const username = ref('')
   const password = ref('')
   const loginError = ref(false)
@@ -77,6 +76,7 @@
         setTimeout(() => {
           // 登录成功后的处理逻辑
           loading.value = false; // 停止加载
+          router.push('/user/profile')
 
           localStorage.setItem('token', token.value);
         }, 2000);
