@@ -66,7 +66,7 @@
           </Menu>
         </LayoutSider>
         <LayoutContent :style="{ padding: '0 24px', minHeight: '280px' }">
-          Content
+          <shoppingcart/>
         </LayoutContent>
       </Layout>
     </LayoutContent>
@@ -94,7 +94,7 @@ import {
   NotificationOutlined,
 } from "@ant-design/icons-vue";
 import { ref } from "vue";
-
+import shoppingcart from "../auth/shopping-cart.vue"
 const selectedKeys1 = ref<string[]>(["2"]);
 const selectedkeys2 = ref<string[]>(["1"]);
 const openKeys = ref<string[]>(["sub1"]);
@@ -118,6 +118,3 @@ const openKeys = ref<string[]>(["sub1"]);
 }
 </style>
 
-<script setup lang="ts">
-import shoppingcart from "./shopping-cart.vue";
-</script>

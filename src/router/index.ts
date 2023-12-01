@@ -29,7 +29,8 @@ const router = createRouter({
     {
       path:"/shop/shopping",
       name:"shopping page",
-      component:shop
+      component:shop,
+      meta: { requiresAuth: true }
     }
 
   ],
